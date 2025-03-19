@@ -245,7 +245,8 @@ st.markdown("""
 # Seleção da categoria
 categoria = st.selectbox(
     '**Selecione a categoria**',
-    ['Automotivo', 'Imobiliário', 'Serviços financeiros (cartão de crédito)', 
+    ['Automotivo', 'Geográfica', 'Empresarial', 'Mobilidade Elétrica'
+     'Imobiliário', 'Serviços financeiros (cartão de crédito)', 
      'Serviços financeiros (seguros)', 'Serviços financeiros (empréstimos)', 
      'Serviços financeiros (consórcios)', 'Serviços financeiros (financiamento)', 
      'Marketing', 'Contábil']
