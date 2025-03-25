@@ -341,7 +341,7 @@ st.markdown("---")
 
 # Banner
 #st.image("https://via.placeholder.com/1200x400.png?text=Banner+do+Gerador+de+Dados+Falsos", use_container_width=True)
-st.image("D:\DADOS_FAKES\banner.png", use_container_width=True)
+st.image("banner.png", use_container_width=True)
 
 # Descrição
 st.markdown("""
