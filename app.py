@@ -339,9 +339,9 @@ st.markdown("""
 
 st.markdown("---")
 
-# Banner
+
 #st.image("https://via.placeholder.com/1200x400.png?text=Banner+do+Gerador+de+Dados+Falsos", use_container_width=True)
-st.image("banner2.png", use_container_width=True)
+
 
 # Descrição
 st.markdown("""
@@ -385,3 +385,7 @@ if st.button('**Gerar Dados**', type="primary"):
 # Rodapé
 st.markdown("---")
 st.markdown("Desenvolvido com ❤️ por **Daniel Castro** | [LinkedIn](https://www.linkedin.com/in/daniel-casthro/)")
+
+# Banner
+st.markdown("---")
+st.image("banner2.png", use_container_width=True)
