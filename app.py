@@ -322,6 +322,70 @@ def gerar_dados_falsos(categoria, num_linhas, num_colunas):
             linha['Frete (R$)'] = round(random.uniform(0.0, 50.0), 2)
             linha['Método de Entrega'] = fake.random_element(elements=('Correios', 'Transportadora'))
             
+        elif categoria == 'SAC-Telemarketing':
+            linha['Nome do Operador'] = fake.name()
+            linha['Matrícula do Operador'] = f"SAC-{random.randint(1000, 9999)}"
+            linha['Tipo de Atendimento'] = fake.random_element(elements=('Reclamação', 'Dúvida', 'Elogio', 'Solicitação'))
+            linha['Canal de Atendimento'] = fake.random_element(elements=('Telefone', 'Chat', 'E-mail', 'WhatsApp'))
+            linha['Tempo Médio de Atendimento (TMA) em minutos'] = round(random.uniform(3.0, 15.0), 1)
+            linha['Satisfação do Cliente (1-5)'] = random.randint(1, 5)
+            linha['Protocolo'] = f"PROTO-{fake.date_this_year().strftime('%Y-%m')}-{random.randint(1000, 9999)}"
+            linha['Data/Hora do Atendimento'] = fake.date_time_this_year().strftime('%d/%m/%Y %H:%M')
+            linha['Tempo de Espera em minutos'] = round(random.uniform(0.5, 10.0), 1)
+            linha['Produto/Serviço Relacionado'] = fake.random_element(elements=('Internet', 'TV por Assinatura', 'Telefonia', 'Planos'))
+            linha['Resolução no Primeiro Contato?'] = fake.random_element(elements=('Sim', 'Não'))
+            linha['Encaminhamento para Outro Setor'] = fake.random_element(elements=('Técnico', 'Financeiro', 'Nenhum', 'Comercial'))
+            linha['Tempo de Pós-Atendimento (minutos)'] = round(random.uniform(0.5, 5.0), 1)
+            linha['Status do Atendimento'] = fake.random_element(elements=('Finalizado', 'Pendente', 'Reaberto'))
+
+        elif categoria == 'Ativos de Serviços de T.I':
+            linha['Tipo de Ativo'] = fake.random_element(elements=('Servidor', 'Notebook', 'Roteador', 'Switch', 'Storage'))
+            linha['Marca/Modelo'] = f"{fake.random_element(elements=('Dell', 'HP', 'Cisco'))} {fake.word().capitalize()} {random.randint(100, 999)}"
+            linha['Número de Série'] = f"SN-{random.randint(100000000, 999999999)}"
+            linha['Data de Aquisição'] = fake.date_between(start_date='-5y', end_date='today').strftime('%d/%m/%Y')
+            linha['Valor do Ativo (R$)'] = round(random.uniform(2000.0, 50000.0), 2)
+            linha['Departamento Responsável'] = fake.random_element(elements=('Infraestrutura', 'Desenvolvimento', 'Suporte', 'Redes'))
+            linha['Status'] = fake.random_element(elements=('Ativo', 'Em Manutenção', 'Desativado', 'Reserva'))
+            linha['Última Manutenção'] = fake.date_between(start_date='-1y', end_date='today').strftime('%d/%m/%Y')
+            linha['Próxima Manutenção Prevista'] = fake.date_between(start_date='today', end_date='+1y').strftime('%d/%m/%Y')
+            linha['Tempo de Garantia (meses)'] = random.choice([12, 24, 36, 60])
+            linha['Fornecedor'] = fake.random_element(elements=('Dell', 'HP', 'Cisco', 'Lenovo', 'IBM'))
+            linha['IP/MAC Address'] = f"192.168.{random.randint(1, 255)}.{random.randint(1, 255)}"
+            linha['Software Principal'] = fake.random_element(elements=('Windows Server', 'Linux Ubuntu', 'VMware ESXi', 'Cisco IOS'))
+            linha['Criticidade'] = fake.random_element(elements=('Alta', 'Média', 'Baixa'))
+
+        elif categoria == 'Obras e Projetos':
+            linha['Nome da Obra'] = f"{fake.random_element(elements=('Residencial', 'Comercial', 'Hospitalar'))} {fake.word().capitalize()} {fake.word().capitalize()}"
+            linha['Tipo de Obra'] = fake.random_element(elements=('Residencial', 'Comercial', 'Público', 'Industrial'))
+            linha['Endereço da Obra'] = fake.address()
+            linha['Área Total (m²)'] = round(random.uniform(100.0, 5000.0), 2)
+            linha['Número de Pavimentos'] = random.randint(1, 30)
+            linha['Data de Início'] = fake.date_between(start_date='-1y', end_date='today').strftime('%d/%m/%Y')
+            linha['Data Prevista de Término'] = fake.date_between(start_date='today', end_date='+2y').strftime('%d/%m/%Y')
+            linha['Valor Total Contratado (R$)'] = round(random.uniform(500000.0, 10000000.0), 2)
+            linha['Número da Licença'] = f"LIC-{fake.date_this_year().strftime('%Y-%m')}-{random.randint(1000, 9999)}"
+            linha['Status da Licença'] = fake.random_element(elements=('Vigente', 'Vencida', 'Em Análise', 'Suspensa'))
+            linha['Número de Alvarás'] = random.randint(1, 5)
+            linha['Responsável Técnico'] = f"Eng. {fake.name()}"
+            linha['Percentual Concluído (%)'] = round(random.uniform(0.0, 100.0), 1)
+            linha['Risco da Obra'] = fake.random_element(elements=('Baixo', 'Médio', 'Alto'))
+
+        elif categoria == 'Recursos Humanos':
+            linha['Nome do Funcionário'] = fake.name()
+            linha['Matrícula'] = f"RH-{random.randint(1000, 9999)}"
+            linha['Cargo'] = fake.random_element(elements=('Analista de TI', 'Gerente Comercial', 'Assistente Administrativo', 'Desenvolvedor'))
+            linha['Data de Admissão'] = fake.date_between(start_date='-10y', end_date='today').strftime('%d/%m/%Y')
+            linha['Salário (R$)'] = round(random.uniform(2000.0, 15000.0), 2)
+            linha['Departamento'] = fake.random_element(elements=('TI', 'Vendas', 'Financeiro', 'Marketing', 'RH'))
+            linha['Nível Hierárquico'] = fake.random_element(elements=('Júnior', 'Pleno', 'Sênior', 'Especialista'))
+            linha['Tipo de Contrato'] = fake.random_element(elements=('CLT', 'PJ', 'Estágio', 'Temporário'))
+            linha['Última Promoção'] = fake.date_between(start_date='-3y', end_date='today').strftime('%d/%m/%Y')
+            linha['Próxima Avaliação'] = fake.date_between(start_date='today', end_date='+1y').strftime('%d/%m/%Y')
+            linha['Benefícios'] = fake.random_element(elements=('VT+VR+Plano de Saúde', 'VR+Plano de Saúde', 'VT+VR', 'Plano de Saúde'))
+            linha['Turno'] = fake.random_element(elements=('Manhã', 'Tarde', 'Noite', 'Flexível'))
+            linha['Status'] = fake.random_element(elements=('Ativo', 'Afastado', 'Desligado', 'Férias'))
+            linha['Tempo de Empresa (anos)'] = round((datetime.now() - datetime.strptime(linha['Data de Admissão'], '%d/%m/%Y')).days / 365, 1)
+
         # Limita o número de colunas
         if len(linha) > num_colunas:
             linha = dict(list(linha.items())[:num_colunas])
@@ -357,7 +421,9 @@ categoria = st.selectbox(
      'Imobiliário', 'Serviços financeiros (cartão de crédito)', 
      'Serviços financeiros (seguros)', 'Serviços financeiros (empréstimos)', 
      'Serviços financeiros (consórcios)', 'Serviços financeiros (financiamento)', 
-     'Marketing', 'Contábil','E-commerce']
+     'Marketing', 'Contábil','E-commerce','SAC-Telemarketing','Ativos de Serviços de T.I',
+     'Obras e Projetos','Recursos Humanos'
+     ]
 )
 
 # Seleção do número de linhas e colunas
