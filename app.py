@@ -450,7 +450,7 @@ if st.button('**Gerar Dados**', type="primary"):
 
 # Rodapé
 st.markdown("---")
-st.markdown("Desenvolvido com ❤️ por **Daniel Castro** | [LinkedIn](https://www.linkedin.com/in/daniel-casthro/)")
+st.markdown("Desenvolvido com  por **Daniel Castro** | [LinkedIn](https://www.linkedin.com/in/daniel-casthro/)")
 
 # Banner
 st.markdown("---")
