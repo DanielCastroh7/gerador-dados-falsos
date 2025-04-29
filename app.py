@@ -452,6 +452,24 @@ if st.button('**Gerar Dados**', type="primary"):
 st.markdown("---")
 st.markdown("Desenvolvido com  por **Daniel Castro** | [LinkedIn](https://www.linkedin.com/in/daniel-casthro/)")
 
+# Conexão com Google
+# Substitua com seu próprio ID de medição GA4
+GA_ID = "G-JBK37XNY60"
+
+ga_js = f"""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA_ID}');
+</script>
+"""
+
+# Insere o código no app Streamlit (invisível ao usuário)
+st.components.v1.html(ga_js, height=0)
+
 # Banner
 st.markdown("---")
 st.image("banner2.png", use_container_width=True)
