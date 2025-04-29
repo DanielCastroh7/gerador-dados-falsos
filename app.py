@@ -455,20 +455,19 @@ st.markdown("Desenvolvido com  por **Daniel Castro** | [LinkedIn](https://www.li
 # Conexão com Google
 GA_ID = "G-JBK37XNY60"
 
-# Código HTML dentro de um iframe
-tracking_code = f"""
-<iframe srcdoc="
-  <script async src='https://www.googletagmanager.com/gtag/js?id={GA_ID}'></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {{ dataLayer.push(arguments); }}
-    gtag('js', new Date());
-    gtag('config', '{GA_ID}');
-  </script>
-" width="0" height="0" style="display:none;visibility:hidden;"></iframe>
+ga_js = f"""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA_ID}');
+</script>
 """
 
-st.components.v1.html(tracking_code, height=0)
+# Insere o código no app Streamlit (invisível ao usuário)
+st.components.v1.html(ga_js, height=0)
 
 # Banner
 st.markdown("---")
